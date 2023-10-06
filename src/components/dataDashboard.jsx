@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@radix-ui/react-accordion";
+import '@radix-ui/themes/styles.css';
+import * as Separator from '@radix-ui/react-separator';
+import '../assets/styles.css';
+import FeedbackForm from './feedbackForm'
+import * as Tabs from '@radix-ui/react-tabs';
 
 // Example function to show how an API might behave
 async function queryExampleAPI(querystring) {
@@ -60,17 +66,52 @@ function DataDashboard() {
   }, []); // Make sure to include the dependency array in useEffect, or your app will infinite loop
 
   const dashboard = dashboardData ? dashboardData.map((item, index) => (
-    <li key={index}>
-      <strong>{item.question}:</strong> {item.answer}
-    </li>
+
+    <div key={index}>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>
+            {item.question}
+          </AccordionTrigger>
+          <AccordionContent>
+          {item.answer}
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <br/>
+    </div>
+
   )) : "Loading..."
 
   return (
-    <div>
-      <h2>Data Dashboard</h2>
-      <ul>
-        {dashboard}
-      </ul>
+    //section title 
+    
+    <div> 
+      <h1>Data Dashboard</h1>
+      <div>
+        <Tabs.Root className="TabsRoot" defaultValue="tab1">
+          <Tabs.List className="TabsList">
+            <Tabs.Trigger className="TabsTrigger" value="tab1">
+              Data
+            </Tabs.Trigger>
+            <Tabs.Trigger className="TabsTrigger" value="tab2">
+              Feedback Form
+            </Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="tab1">
+            <Separator.Root className="SeparatorRoot" style={{ margin: '15px 0' }} />
+            <div className="padded">
+              {dashboard}
+              </div>
+            <Separator.Root className="SeparatorRoot" style={{ margin: '15px 0' }} />
+          </Tabs.Content>
+          <Tabs.Content value="tab2">
+            <Separator.Root className="SeparatorRoot" style={{ margin: '15px 0' }} />
+            <FeedbackForm/>
+            <Separator.Root className="SeparatorRoot" style={{ margin: '15px 0' }} />
+          </Tabs.Content>
+        </Tabs.Root>
+      </div>
     </div>
   );
 }
