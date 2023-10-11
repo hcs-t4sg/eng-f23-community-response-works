@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Flex } from '@radix-ui/themes';
 
 // Example function to show how an API might behave
 async function queryExampleAPI(querystring) {
@@ -67,6 +69,14 @@ function DataDashboard() {
 
   return (
     <div>
+      <Flex style={{ width: "100%", marginBottom: 10 }} justify="left" gap={10}>
+        <Link to="/" style={{ marginRight: 20 }}>
+          <button>Home</button>
+        </Link>
+        <Link to="/feedback">
+          <button>Feedback</button>
+        </Link>
+      </Flex>
       <h2>Data Dashboard</h2>
       <ul>
         {dashboard}
