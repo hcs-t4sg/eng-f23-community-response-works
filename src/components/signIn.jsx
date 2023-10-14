@@ -2,10 +2,13 @@
 import { useState } from 'react';
 import { authenticateUser } from './mockAPI'; 
 
+
 function SignIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [signedIn, setSignedIn] = useState(false);
+  
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ function SignIn() {
     if (token) {
       // Mock authentication was successful, store the token
       localStorage.setItem('token', token);
+      setSignedIn(true);
       // Redirect to the data dashboard
       window.location.href = '/dataDashboard';
     } else {
@@ -45,5 +49,7 @@ function SignIn() {
     </div>
   );
 }
-
+export function signedIn() {
+  return signedIn;
+}
 export default SignIn;

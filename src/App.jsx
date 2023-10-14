@@ -8,15 +8,17 @@ import Navbar from './components/navbar';
 import ContactForm from './components/contactForm';
 import About from './components/about';
 import Footer from './components/footer';
+import { signedIn } from './components/signIn';
 
 function App() {
+  const signInOrOut = signedIn ? {path: "/signIn", label:<SignIn/>} : {path: "/landing", label:<Landing/>};
   return (
     <>
     <Navbar/>
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/signIn" element={<SignIn />} />
+        <Route path={signInOrOut.path} element={signInOrOut.label} />
         <Route path="/dataDashboard" element={<DataDashboard/>} />
         <Route path="/contactUs" element={<ContactForm/>} />
         <Route path="/about" element={<About/>} />
