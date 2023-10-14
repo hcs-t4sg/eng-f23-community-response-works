@@ -4,6 +4,7 @@
   opacity: .9;
   border-radius: 5%;
   height: auto;
+  width: 600px;
 }
 .card-text {
   opacity: 1;
