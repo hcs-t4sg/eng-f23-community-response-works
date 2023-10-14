@@ -1,6 +1,5 @@
 // import { createServerSupabaseClient } from "@/lib/server-utils";
 import '../assets/styles.css';
-import { signedIn } from './signIn';
 export default function Navbar() {
   // Create supabase server component client and obtain user session from stored cookie
   // const supabase = createServerSupabaseClient();
@@ -8,7 +7,6 @@ export default function Navbar() {
   //   data: { session },
   // } = await supabase.auth.getSession();
   const session=true;
-  const signInOrOut = signedIn() ? {path: "/signIn", label:"Sign In"} : {path: "/landing", label:"Sign Out"};
   return (
     <nav className="navbar">
       <div className="nav-left">
@@ -21,8 +19,8 @@ export default function Navbar() {
       <div className="nav-right">
         <div>
         {session && (
-            <a href={signInOrOut.path} className='nav-link'>
-              {signInOrOut.label}
+            <a href="/signIn" className='nav-link'>
+              Sign In
             </a>
           )}
         </div>

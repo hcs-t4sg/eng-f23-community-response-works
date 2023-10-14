@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import ContactForm from './contactForm';
 import DataCard from './dataCard';
-import { signedIn } from './signIn';
 
 // Example function to show how an API might behave
 async function queryExampleAPI(querystring) {
@@ -35,9 +34,6 @@ async function queryExampleAPI(querystring) {
 }
 
 function DataDashboard() {
-  if(!signedIn) {
-    return
-  }
   // Defining a state variable to store the data
   // State variable is initially null, but will update once the API request finishes
   const [dashboardData, setDashboardData] = useState(null);
