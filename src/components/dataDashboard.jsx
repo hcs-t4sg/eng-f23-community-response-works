@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import ContactForm from './contactForm';
+import DataCard from './dataCard';
 
 // Example function to show how an API might behave
 async function queryExampleAPI(querystring) {
@@ -60,17 +62,23 @@ function DataDashboard() {
   }, []); // Make sure to include the dependency array in useEffect, or your app will infinite loop
 
   const dashboard = dashboardData ? dashboardData.map((item, index) => (
-    <li key={index}>
-      <strong>{item.question}:</strong> {item.answer}
-    </li>
+   <div key={index}>
+      <div /* className="grid-item" */ style={{ gridColumn: (index % 3) + 1, gridRow: 1}}>
+        {DataCard(item.question, "", item.answer)}
+      </div>
+    </div>
   )) : "Loading..."
-
+  //{DataCard(item.question, "", item.answer)}
+  // <strong>{item.question}:</strong> {item.answer}
   return (
-    <div>
-      <h2>Data Dashboard</h2>
-      <ul>
-        {dashboard}
-      </ul>
+    <div height="auto" overflow="auto" onScroll={true}>
+      <h2 style={{paddingTop: '10%'}}>Data Dashboard</h2>
+      <div className="grid-container">
+      {dashboard}
+      </div>
+     
+       {/*<ContactForm/>*/}
+
     </div>
   );
 }
