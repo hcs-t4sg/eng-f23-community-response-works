@@ -1,13 +1,30 @@
 /* FORM */
+/* .grid-item {
+  grid-column: span 2 ;
+} */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+  grid-template-rows: auto; /* Automatic row sizing */
+  gap: 16px; /* Gap between grid items */
+  border: none;
+}
+
+.grid-item {
+  padding: 16px;
+  border: 1px solid #ccc;
+}
 .data-card {
   background-color: white;
   opacity: .9;
   border-radius: 5%;
-  height: auto;
-  width: 600px;
+  height: 500px;
+  width: auto;
 }
 .card-text {
   opacity: 1;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 input,
 textarea,

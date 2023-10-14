@@ -62,20 +62,22 @@ function DataDashboard() {
   }, []); // Make sure to include the dependency array in useEffect, or your app will infinite loop
 
   const dashboard = dashboardData ? dashboardData.map((item, index) => (
-    <div key={index}>
-      <div>
-      {DataCard(item.question, "", item.answer)}
+   <div key={index}>
+      <div /* className="grid-item" */ style={{ gridColumn: (index % 3) + 1, gridRow: 1}}>
+        {DataCard(item.question, "", item.answer)}
       </div>
-     
     </div>
   )) : "Loading..."
   //{DataCard(item.question, "", item.answer)}
   // <strong>{item.question}:</strong> {item.answer}
   return (
-    <div>
+    <div height="auto">
       <h2>Data Dashboard</h2>
+      <div className="grid-container">
       {dashboard}
-       <ContactForm/>
+      </div>
+     
+       {/*<ContactForm/>*/}
 
     </div>
   );
