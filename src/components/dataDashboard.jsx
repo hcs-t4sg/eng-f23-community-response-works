@@ -71,8 +71,8 @@ function DataDashboard() {
   //{DataCard(item.question, "", item.answer)}
   // <strong>{item.question}:</strong> {item.answer}
   return (
-    <div height="auto">
-      <h2>Data Dashboard</h2>
+    <div height="auto" overflow="auto" onScroll={true}>
+      <h2 style={{paddingTop: '10%'}}>Data Dashboard</h2>
       <div className="grid-container">
       {dashboard}
       </div>

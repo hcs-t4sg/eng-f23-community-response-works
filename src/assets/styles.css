@@ -15,14 +15,13 @@
   border: 1px solid #ccc;
 }
 .data-card {
-  background-color: white;
-  opacity: .9;
+  background-color: rgba(255,255,255, .5);
+  opacity: 1;
   border-radius: 5%;
   height: 500px;
   width: auto;
 }
 .card-text {
-  opacity: 1;
   margin-left: 5%;
   margin-right: 5%;
 }
