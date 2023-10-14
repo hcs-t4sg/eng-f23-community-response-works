@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ContactForm from './contactForm';
+import DataCard from './dataCard';
+
 // Example function to show how an API might behave
 async function queryExampleAPI(querystring) {
 
@@ -71,7 +73,9 @@ function DataDashboard() {
       <ul>
         {dashboard}
       </ul>
+      <DataCard/>
       <ContactForm/>
+
     </div>
   );
 }

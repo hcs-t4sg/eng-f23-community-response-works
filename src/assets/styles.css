@@ -1,4 +1,13 @@
 /* FORM */
+.data-card {
+  background-color: white;
+  opacity: .9;
+  border-radius: 5%;
+  height: auto;
+}
+.card-text {
+  opacity: 1;
+}
 input,
 textarea,
 button {
